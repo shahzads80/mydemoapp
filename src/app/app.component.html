@@ -1,0 +1,90 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-4">
+            <div class="card">
+                <div class="card-header">
+                    Pipes
+                </div>
+                <div class="card-body">
+                    <div>{{currentdate }}</div>
+                    <div>{{currentdate | date}}</div>
+                    <div>{{currentdate | date:'shortDate'}} -<b>ShortDate</b> </div>
+                    <div>{{currentdate | date: 'longDate'}} - <b>LongDate</b></div>
+                    <div>{{currentdate | date: 'fullDate'}} - <b>FullDate</b></div>
+                    <div>{{currentdate | date: 'mediumDate'}} -<b> MediumDate</b></div>
+                    <div>{{currentdate | date: 'dd-MMM-yyyy'}}- <b>Format Change</b></div>
+                    <div>{{currentdate | date: 'dd/MMM/yyyy'}} - <b>Format Change</b></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="card">
+                <div class="card-header">
+                    Custom Pipes
+                </div>
+                <div class="card-body">
+                    <div> Welcome Custom Pipe Example</div>
+                    <div>{{name | welcome}}</div>
+                    <br>
+                    <div>Bold Custom Pipe Example</div>
+                    <div>My Name is <span [innerHTML]="name | bold"></span></div>
+                    <br>
+                    <div>Reverse string Custom Pipe Example</div>
+                    <div>{{ name | reversestring }}</div>
+                    <br>
+                    <div>Limit Char Custom Pipe Example with user Passing Argument</div>
+                       <div>{{ str | limitword2 }} <span>--> limit char without Parameter</span></div> 
+                       <div>{{ str | limitword2 : 15 }} <span>--> limit char single Parameter</span></div> 
+                       <div>{{ str | limitword2 : 12 : true}} </div>
+                       <div>{{ str | limitword2 : 12 : false:'***'}} <span>--> limit char 2 Parameter</span></div>
+                    </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4">
+            <div class="card">
+                <div class="card-header">
+                    Router
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li> Router Link Example</li>
+                        <li>
+                            <a routerLink="dashboard" >Dashboard</a> |
+                            <a routerLink="aboutus" >About us</a> | 
+                            <a routerLink="contactus" >Contact us</a> |
+                            <a routerLink="about" >About us new</a>
+                            
+                        </li>
+                        <li>Difference b/w href & RouterLink? <br>
+                            href - refereshes the page - 
+                            RouterLink - doesn't referesh the page
+                        </li>   
+                        <li> href Example</li>
+                        <li>
+                            <a href="dashboard" >Dashboard</a> |
+                            <a href="aboutus" >About us</a> | 
+                            <a href="contactus" >Contact us</a>
+                            
+                        </li>
+                     </ul>   
+                     <div><b>Child Route Example</b></div>
+                     <ul>
+                        <li>
+                            <a routerLink="student" >Student Master</a> |
+                        </li>
+                     </ul>
+
+                     <div><b>Parameterize Route Example</b></div>
+                     <ul>
+                        <li>
+                            <a [routerLink]="['contactus', 101]" >Contact us new</a>
+                            <a [routerLink]="['contactus', 102,'Shahzad']" >Contact us new 2</a>
+                        </li>
+                     </ul>
+                </div>    
+        </div>
+    </div>
+</div>
+<router-outlet></router-outlet>
